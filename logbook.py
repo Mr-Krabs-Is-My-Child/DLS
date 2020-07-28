@@ -10,7 +10,10 @@ try:
     commandFile.close()
 except FileNotFoundError:
     print('File"Program" Data not found')
-
+continueInput = 1
+firstNameLoop = 1
+surnameLoop = 1
+phoneNumberLoop = 1
 #Recent Entries List
 recentEntries = []
 
@@ -23,6 +26,34 @@ def disclaimer():
     except FileNotFoundError:
         print("Disclaimer file not found")
 
+#Program Functions
+def firstName():
+
+def surname():
+
+def phoneNumber():
+
+
+
 #User Data Collection
 def userInput():
-    firstName = str(input("Name?"))
+    if continueInput == 1:
+        firstName()
+    else:
+        runConsole()
+    if continueInput == 1:
+        surname()
+    else:
+        runConsole()
+    if continueInput == 1:
+        phoneNumber()
+    else:
+        runConsole()
+
+#Console
+def runConsole():
+    print("Hi")
+
+
+#Run Program Functions
+userInput()
