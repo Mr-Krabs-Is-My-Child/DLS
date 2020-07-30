@@ -28,7 +28,14 @@ def disclaimer():
 
 #Program Functions
 def firstName():
+    global firstNameLoop
     print("Test Firstname")
+    while firstNameLoop == 1:
+        try:
+            first = str(input("First"))
+            firstNameLoop = 0
+        except ValueError:
+            print("Value Error Message")
 def surname():
     print("Test Surname")
 
@@ -56,6 +63,9 @@ def userInput(continueInput):
         runConsole()
     else:
         continueInput = 1
+        firstNameLoop = 1
+        surnameLoop = 1
+        phoneNumberLoop = 1
 
 
 #Console
