@@ -28,32 +28,40 @@ def disclaimer():
 
 #Program Functions
 def firstName():
-
+    print("Test Firstname")
 def surname():
+    print("Test Surname")
 
 def phoneNumber():
-
+    print("Test Phone")
 
 
 #User Data Collection
-def userInput():
+def userInput(continueInput):
     if continueInput == 1:
         firstName()
-    else:
+    elif continueInput == 0:
         runConsole()
+    else:
+        continueInput = 2
     if continueInput == 1:
         surname()
-    else:
+    elif continueInput == 0:
         runConsole()
+    else:
+        continueInput = 2
     if continueInput == 1:
         phoneNumber()
-    else:
+    elif continueInput == 0:
         runConsole()
+    else:
+        continueInput = 1
+
 
 #Console
 def runConsole():
-    print("Hi")
+    print("Test Console")
 
 
 #Run Program Functions
-userInput()
+userInput(continueInput)
