@@ -4,16 +4,12 @@ import os
 from datetime import datetime
 
 #Variables
-try:
-    commandFile = open("Program Data","r")
-    commandCode = commandFile.readline()
-    commandFile.close()
-except FileNotFoundError:
-    print('File"Program" Data not found')
-continueInput = 1
-firstNameLoop = 1
-surnameLoop = 1
-phoneNumberLoop = 1
+
+continueInput = True
+firstNameLoop = True
+surnameLoop = True
+phoneNumberLoop = True
+
 #Recent Entries List
 recentEntries = []
 
@@ -29,13 +25,22 @@ def disclaimer():
 #Program Functions
 def firstName():
     global firstNameLoop
-    print("Test Firstname")
-    while firstNameLoop == 1:
+    global commandCode
+    print("Test First")
+    while firstNameLoop == True:
         try:
-            first = str(input("First"))
-            firstNameLoop = 0
+            first = str(input("First?"))
         except ValueError:
-            print("Value Error Message")
+
+            print("ValueError")
+        else:
+            firstNameLoop = False
+            if first == "CMD":
+                runConsole()
+            else:
+                pass
+
+
 def surname():
     print("Test Surname")
 
@@ -44,28 +49,9 @@ def phoneNumber():
 
 
 #User Data Collection
-def userInput(continueInput):
-    if continueInput == 1:
-        firstName()
-    elif continueInput == 0:
-        runConsole()
-    else:
-        continueInput = 2
-    if continueInput == 1:
-        surname()
-    elif continueInput == 0:
-        runConsole()
-    else:
-        continueInput = 2
-    if continueInput == 1:
-        phoneNumber()
-    elif continueInput == 0:
-        runConsole()
-    else:
-        continueInput = 1
-        firstNameLoop = 1
-        surnameLoop = 1
-        phoneNumberLoop = 1
+def userInput():
+    print("User Input Function")
+
 
 
 #Console
@@ -74,4 +60,5 @@ def runConsole():
 
 
 #Run Program Functions
-userInput(continueInput)
+userInput()
+firstName()
