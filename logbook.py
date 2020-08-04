@@ -7,6 +7,8 @@ from datetime import datetime
 first = ""
 surname = ""
 phoneNumber = ""
+fullName = ""
+userFile = ""
 continueInput = True
 firstNameLoop = True
 surnameLoop = True
@@ -66,6 +68,11 @@ def phoneNumber():
     global phoneNumber
     global phoneNumberLoop
     global commandCode
+    global fullName
+    global first
+    global surname
+    global userFile
+    createFile = True
     while phoneNumberLoop == True:
         try:
             phoneNumber = str(input("Phone Number?"))
@@ -79,6 +86,18 @@ def phoneNumber():
                 runConsole()
             else:
                 print("Thank you message")
+                fullName = first + "_" + surname
+                recentEntries.append(fullName)
+                while createFile == True:
+                    try:
+                        userFile = open((fullName + ".txt"),"x")
+                        userFile.close()
+                        createFile = False
+                    except FileExistsError:
+                        print("File Exists Error")
+                        fullName = fullName + "_Test"
+
+
 
 
 #Console
@@ -88,6 +107,3 @@ def runConsole():
 
 #Run Program Functions
 firstName()
-print(first)
-print(surname)
-print(phoneNumber)
