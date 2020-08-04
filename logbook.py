@@ -47,13 +47,6 @@ def surname():
 def phoneNumber():
     print("Test Phone")
 
-
-#User Data Collection
-def userInput():
-    print("User Input Function")
-
-
-
 #Console
 def runConsole():
     print("Test Console")
