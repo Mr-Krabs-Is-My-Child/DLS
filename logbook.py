@@ -38,6 +38,7 @@ def firstName():
         else:
             firstNameLoop = False
             if first == "CMD":
+                first = ""
                 runConsole()
             else:
                 surname()
@@ -56,6 +57,7 @@ def surname():
         else:
             surnameLoop = False
             if surname == "CMD":
+                surname = ""
                 runConsole()
             else:
                 phoneNumber()
@@ -73,9 +75,12 @@ def phoneNumber():
         else:
             phoneNumberLoop = False
             if phoneNumber == "CMD":
+                phoneNumber = ""
                 runConsole()
             else:
-                pass
+                print("Thank you message")
+
+
 #Console
 def runConsole():
     print("Test Console")
