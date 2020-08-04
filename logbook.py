@@ -4,7 +4,9 @@ import os
 from datetime import datetime
 
 #Variables
-
+first = ""
+surname = ""
+phoneNumber = ""
 continueInput = True
 firstNameLoop = True
 surnameLoop = True
@@ -24,9 +26,9 @@ def disclaimer():
 
 #Program Functions
 def firstName():
+    global first
     global firstNameLoop
     global commandCode
-    print("Test First")
     while firstNameLoop == True:
         try:
             first = str(input("First?"))
@@ -38,20 +40,49 @@ def firstName():
             if first == "CMD":
                 runConsole()
             else:
-                pass
+                surname()
 
 
 def surname():
-    print("Test Surname")
+    global surname
+    global surnameLoop
+    global commandCode
+    while surnameLoop == True:
+        try:
+            surname = str(input("Surname?"))
+        except ValueError:
+
+            print("ValueError")
+        else:
+            surnameLoop = False
+            if surname == "CMD":
+                runConsole()
+            else:
+                phoneNumber()
 
 def phoneNumber():
-    print("Test Phone")
+    global phoneNumber
+    global phoneNumberLoop
+    global commandCode
+    while phoneNumberLoop == True:
+        try:
+            phoneNumber = str(input("Phone Number?"))
+        except ValueError:
 
+            print("ValueError")
+        else:
+            phoneNumberLoop = False
+            if phoneNumber == "CMD":
+                runConsole()
+            else:
+                pass
 #Console
 def runConsole():
     print("Test Console")
 
 
 #Run Program Functions
-userInput()
 firstName()
+print(first)
+print(surname)
+print(phoneNumber)
