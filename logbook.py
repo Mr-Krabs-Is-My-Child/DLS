@@ -1,7 +1,7 @@
 #Imports for program operation
 import time
 import os
-from datetime import datetime
+import datetime
 
 #Variables
 first = ""
@@ -9,6 +9,7 @@ surname = ""
 phoneNumber = ""
 fullName = ""
 userFile = ""
+timeStr = datetime.datetime.now()
 continueInput = True
 firstNameLoop = True
 surnameLoop = True
@@ -72,6 +73,7 @@ def phoneNumber():
     global first
     global surname
     global userFile
+    global timeStr
     createFile = True
     while phoneNumberLoop == True:
         try:
@@ -93,10 +95,14 @@ def phoneNumber():
                         userFile = open((fullName + ".txt"),"x")
                         userFile.close()
                         createFile = False
+                        userFile = open((fullName + ".txt"),"a")
+                        userFile.write(first)
+                        userFile.write(surname)
+                        userFile.write(phoneNumber)
+                        userFile.write(timeStr)
                     except FileExistsError:
                         print("File Exists Error")
                         fullName = fullName + "_Test"
-
 
 
 
