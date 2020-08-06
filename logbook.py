@@ -3,7 +3,7 @@ import time
 import os
 from datetime import datetime
 
-#Variables
+#Variables for program operation
 first = ""
 surname = ""
 phoneNumber = ""
@@ -15,8 +15,9 @@ firstNameLoop = True
 surnameLoop = True
 phoneNumberLoop = True
 
-#Recent Entries List
+#Lists for program operation
 recentEntries = []
+commandList = []
 
 #Disclaimer Function
 def disclaimer():
@@ -25,14 +26,16 @@ def disclaimer():
         print(disclaimerFile.read())
         disclaimerFile.close()
     except FileNotFoundError:
+        #Print an error message, Add code to create Disclaimer with default text if one is not found
         print("Disclaimer file not found")
     firstName()
 
-#Program Functions
+#User input functions
 def firstName():
     global first
     global firstNameLoop
     global commandCode
+    #Input Loop
     while firstNameLoop == True:
         try:
             first = str(input("First?"))
@@ -45,8 +48,8 @@ def firstName():
                 first = ""
                 runConsole()
             else:
+                #Continue input sequence if CMD is not detected
                 surname()
-
 
 def surname():
     global surname
@@ -64,9 +67,11 @@ def surname():
                 surname = ""
                 runConsole()
             else:
+                #Continue input sequence if CMD is not detected
                 phoneNumber()
 
 def phoneNumber():
+    #Global variables for writing to files
     global phoneNumber
     global phoneNumberLoop
     global commandCode
@@ -93,9 +98,11 @@ def phoneNumber():
                 recentEntries.append(fullName)
                 while createFile == True:
                     try:
+                        #User file creation and writing
                         userFile = open((fullName + ".txt"),"x")
                         userFile.close()
                         createFile = False
+                        #Datetime to string formatting
                         dateTime = datetime.now()
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
                         userFile = open((fullName + ".txt"),"a")
@@ -106,6 +113,7 @@ def phoneNumber():
                         userFile.write(phoneNumber)
                         userFile.write("\n")
                         userFile.write(timeStr)
+                        #End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
                         fullName = fullName + "_Test"
@@ -114,7 +122,9 @@ def phoneNumber():
 
 #Console
 def runConsole():
-    print("Test Console")
+    global commandList
+    print("Available commands:")
+    print(commandList)
 
 
 #Run Program Functions
