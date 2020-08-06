@@ -1,7 +1,7 @@
 #Imports for program operation
 import time
 import os
-import datetime
+from datetime import datetime
 
 #Variables
 first = ""
@@ -9,7 +9,7 @@ surname = ""
 phoneNumber = ""
 fullName = ""
 userFile = ""
-timeStr = datetime.datetime.now()
+timeStr = ""
 continueInput = True
 firstNameLoop = True
 surnameLoop = True
@@ -95,10 +95,15 @@ def phoneNumber():
                         userFile = open((fullName + ".txt"),"x")
                         userFile.close()
                         createFile = False
+                        dateTime = datetime.now()
+                        timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
                         userFile = open((fullName + ".txt"),"a")
                         userFile.write(first)
+                        userFile.write("\n")
                         userFile.write(surname)
+                        userFile.write("\n")
                         userFile.write(phoneNumber)
+                        userFile.write("\n")
                         userFile.write(timeStr)
                     except FileExistsError:
                         print("File Exists Error")
