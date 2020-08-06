@@ -26,6 +26,7 @@ def disclaimer():
         disclaimerFile.close()
     except FileNotFoundError:
         print("Disclaimer file not found")
+    firstName()
 
 #Program Functions
 def firstName():
@@ -117,4 +118,4 @@ def runConsole():
 
 
 #Run Program Functions
-firstName()
+disclaimer()
