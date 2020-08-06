@@ -99,7 +99,7 @@ def phoneNumber():
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
                         userFile = open((fullName + ".txt"),"a")
                         userFile.write(first)
-                        userFile.write("\n")
+                        userFile.write(" ")
                         userFile.write(surname)
                         userFile.write("\n")
                         userFile.write(phoneNumber)
