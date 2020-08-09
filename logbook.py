@@ -27,7 +27,13 @@ def disclaimer():
         disclaimerFile.close()
     except FileNotFoundError:
         #Print an error message, Add code to create Disclaimer with default text if one is not found
-        print("Disclaimer file not found")
+        print("Disclaimer file not found. Creating new disclaimer file")
+        disclaimerFile = open("Disclaimer","a")
+        disclaimerFile.write("Default disclaimer")
+        disclaimerFile.close()
+        disclaimerFile = open("Disclaimer","r")
+        print(disclaimerFile.read())
+        disclaimerFile.close()
     finally:
         firstName()
 
