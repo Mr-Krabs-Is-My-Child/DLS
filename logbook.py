@@ -28,7 +28,8 @@ def disclaimer():
     except FileNotFoundError:
         #Print an error message, Add code to create Disclaimer with default text if one is not found
         print("Disclaimer file not found")
-    firstName()
+    finally:
+        firstName()
 
 #User input functions
 def firstName():
@@ -40,7 +41,6 @@ def firstName():
         try:
             first = str(input("First?"))
         except ValueError:
-
             print("ValueError")
         else:
             firstNameLoop = False
@@ -105,6 +105,7 @@ def phoneNumber():
                         #Datetime to string formatting
                         dateTime = datetime.now()
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
+                        #Open file for appending and adding stored data to file
                         userFile = open((fullName + ".txt"),"a")
                         userFile.write(first)
                         userFile.write(" ")
@@ -113,6 +114,7 @@ def phoneNumber():
                         userFile.write(phoneNumber)
                         userFile.write("\n")
                         userFile.write(timeStr)
+                        disclaimer()
                         #End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
@@ -125,7 +127,8 @@ def runConsole():
     global commandList
     print("Available commands:")
     print(commandList)
-
+    runCMD = str(input("Command Entry"))
+    print(runCMD)
 
 #Run Program Functions
 disclaimer()
