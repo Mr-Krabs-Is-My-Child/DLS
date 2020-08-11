@@ -20,7 +20,13 @@ recentEntries = []
 commandList = []
 
 #Disclaimer Function
-def disclaimer():
+def disclaimerFN():
+    global firstNameLoop
+    global surnameLoop
+    global phoneNumberLoop
+    firstNameLoop = True
+    surnameLoop = True
+    phoneNumberLoop = True
     try:
         disclaimerFile = open("Disclaimer","r")
         print(disclaimerFile.read())
@@ -35,10 +41,10 @@ def disclaimer():
         print(disclaimerFile.read())
         disclaimerFile.close()
     finally:
-        firstName()
+        firstNameFN()
 
 #User input functions
-def firstName():
+def firstNameFN():
     global first
     global firstNameLoop
     global commandCode
@@ -55,9 +61,9 @@ def firstName():
                 runConsole()
             else:
                 #Continue input sequence if CMD is not detected
-                surname()
+                surnameFN()
 
-def surname():
+def surnameFN():
     global surname
     global surnameLoop
     global commandCode
@@ -74,9 +80,9 @@ def surname():
                 runConsole()
             else:
                 #Continue input sequence if CMD is not detected
-                phoneNumber()
+                phoneNumberFN()
 
-def phoneNumber():
+def phoneNumberFN():
     #Global variables for writing to files
     global phoneNumber
     global phoneNumberLoop
@@ -120,7 +126,7 @@ def phoneNumber():
                         userFile.write(phoneNumber)
                         userFile.write("\n")
                         userFile.write(timeStr)
-                        disclaimer()
+                        disclaimerFN()
                         #End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
@@ -137,4 +143,4 @@ def runConsole():
     print(runCMD)
 
 #Run Program Functions
-disclaimer()
+disclaimerFN()
