@@ -1,10 +1,10 @@
-#Imports for program operation
+# Imports for program operation
 import sys
 import time
 import os
 from datetime import datetime
 
-#Variables for program operation
+# Variables for program operation
 first = ""
 surname = ""
 phoneNumber = ""
@@ -16,11 +16,12 @@ firstNameLoop = True
 surnameLoop = True
 phoneNumberLoop = True
 
-#Lists for program operation
+# Lists for program operation
 recentEntries = []
-commandList = ["Edit Disclaimer","Kill"]
+commandList = ["Edit Disclaimer", "Kill"]
 
-#Disclaimer Function
+
+# Disclaimer Function
 def disclaimerFN():
     global firstNameLoop
     global surnameLoop
@@ -29,27 +30,28 @@ def disclaimerFN():
     surnameLoop = True
     phoneNumberLoop = True
     try:
-        disclaimerFile = open("Disclaimer","r")
+        disclaimerFile = open("Disclaimer", "r")
         print(disclaimerFile.read())
         disclaimerFile.close()
     except FileNotFoundError:
-        #Print an error message, Add code to create Disclaimer with default text if one is not found
+        # Print an error message, Add code to create Disclaimer with default text if one is not found
         print("Disclaimer file not found. Creating new disclaimer file")
-        disclaimerFile = open("Disclaimer","a")
+        disclaimerFile = open("Disclaimer", "a")
         disclaimerFile.write("Default disclaimer")
         disclaimerFile.close()
-        disclaimerFile = open("Disclaimer","r")
+        disclaimerFile = open("Disclaimer", "r")
         print(disclaimerFile.read())
         disclaimerFile.close()
     finally:
         firstNameFN()
 
-#User input functions
+
+# User input functions
 def firstNameFN():
     global first
     global firstNameLoop
     global commandCode
-    #Input Loop
+    # Input Loop
     while firstNameLoop == True:
         try:
             first = str(input("First?"))
@@ -61,8 +63,9 @@ def firstNameFN():
                 first = ""
                 runConsole()
             else:
-                #Continue input sequence if CMD is not detected
+                # Continue input sequence if CMD is not detected
                 surnameFN()
+
 
 def surnameFN():
     global surname
@@ -80,11 +83,12 @@ def surnameFN():
                 surname = ""
                 runConsole()
             else:
-                #Continue input sequence if CMD is not detected
+                # Continue input sequence if CMD is not detected
                 phoneNumberFN()
 
+
 def phoneNumberFN():
-    #Global variables for writing to files
+    # Global variables for writing to files
     global phoneNumber
     global phoneNumberLoop
     global commandCode
@@ -111,15 +115,15 @@ def phoneNumberFN():
                 recentEntries.append(fullName)
                 while createFile == True:
                     try:
-                        #User file creation and writing
-                        userFile = open((fullName + ".txt"),"x")
+                        # User file creation and writing
+                        userFile = open((fullName + ".txt"), "x")
                         userFile.close()
                         createFile = False
-                        #Datetime to string formatting
+                        # Datetime to string formatting
                         dateTime = datetime.now()
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
-                        #Open file for appending and adding stored data to file
-                        userFile = open((fullName + ".txt"),"a")
+                        # Open file for appending and adding stored data to file
+                        userFile = open((fullName + ".txt"), "a")
                         userFile.write(first)
                         userFile.write(" ")
                         userFile.write(surname)
@@ -128,14 +132,13 @@ def phoneNumberFN():
                         userFile.write("\n")
                         userFile.write(timeStr)
                         disclaimerFN()
-                        #End of user input sequence
+                        # End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
                         fullName = fullName + "_Test"
 
 
-
-#Console
+# Console
 def runConsole():
     global commandList
     global recentEntries
@@ -143,22 +146,17 @@ def runConsole():
     print(commandList)
     runCMD = str(input("Command Entry"))
     runCMD = runCMD.lower()
-    #Console Commands
+    # Console Commands
     if runCMD == "edit disclaimer":
         print("Edit disclaimer")
     elif runCMD == "kill":
         sys.exit()
     elif runCMD == "recent" or "recent entries" or "entries":
         print(recentEntries)
-        print("Would you like to clear the recent entries")
-        deleteEntries = str(input("[Y] or [N]"))
-        deleteEntries = deleteEntries.lower()
-        if deleteEntries == "y" or "yes":
-            recentEntries.clear()
-        else:
-            print("ok")
+        runConsole()
     else:
         print("Nothing happened")
 
-#Run Program Functions
+
+# Run Program Functions
 disclaimerFN()
