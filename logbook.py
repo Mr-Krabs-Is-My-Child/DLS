@@ -1,4 +1,5 @@
 #Imports for program operation
+import sys
 import time
 import os
 from datetime import datetime
@@ -17,7 +18,7 @@ phoneNumberLoop = True
 
 #Lists for program operation
 recentEntries = []
-commandList = []
+commandList = ["Edit Disclaimer","Kill"]
 
 #Disclaimer Function
 def disclaimerFN():
@@ -137,10 +138,27 @@ def phoneNumberFN():
 #Console
 def runConsole():
     global commandList
+    global recentEntries
     print("Available commands:")
     print(commandList)
     runCMD = str(input("Command Entry"))
-    print(runCMD)
+    runCMD = runCMD.lower()
+    #Console Commands
+    if runCMD == "edit disclaimer":
+        print("Edit disclaimer")
+    elif runCMD == "kill":
+        sys.exit()
+    elif runCMD == "recent" or "recent entries" or "entries":
+        print(recentEntries)
+        print("Would you like to clear the recent entries")
+        deleteEntries = str(input("[Y] or [N]"))
+        deleteEntries = deleteEntries.lower()
+        if deleteEntries == "y" or "yes":
+            recentEntries.clear()
+        else:
+            print("ok")
+    else:
+        print("Nothing happened")
 
 #Run Program Functions
 disclaimerFN()
