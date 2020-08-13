@@ -54,7 +54,8 @@ def firstNameFN():
     # Input Loop
     while firstNameLoop == True:
         try:
-            first = str(input("First?"))
+            print("Please input you First name:")
+            first = str(input("[-->]"))
         except ValueError:
             print("ValueError")
         else:
@@ -73,7 +74,8 @@ def surnameFN():
     global commandCode
     while surnameLoop == True:
         try:
-            surname = str(input("Surname?"))
+            print("Please input you Surname:")
+            surname = str(input("[-->]"))
         except ValueError:
 
             print("ValueError")
@@ -100,7 +102,8 @@ def phoneNumberFN():
     createFile = True
     while phoneNumberLoop == True:
         try:
-            phoneNumber = str(input("Phone Number?"))
+            print("Please enter your phone number, so that we may contact you if necessary")
+            phoneNumber = str(input("[-->]"))
         except ValueError:
 
             print("ValueError")
