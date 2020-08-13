@@ -18,7 +18,7 @@ phoneNumberLoop = True
 
 # Lists for program operation
 recentEntries = []
-commandList = ["Edit Disclaimer", "Kill"]
+commandList = ["Edit Disclaimer","Kill","Recent Entries","Search"]
 
 
 # Disclaimer Function
@@ -165,9 +165,10 @@ def runConsole():
         elif runCMD == "search":
             print("search")
         elif runCMD == "exit":
+            disclaimerFN()
             break
         else:
-            print("Nothing happened")
+            print("Not recognized")
 
 
 # Run Program Functions
