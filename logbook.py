@@ -164,6 +164,14 @@ def runConsole():
             print(recentEntries)
         elif runCMD == "search":
             print("search")
+            try:
+                search = str(input("Search name"))
+                search = search + ".txt"
+                f = open(search,"r")
+                print(f.read())
+                f.close()
+            except FileNotFoundError:
+                print("File not found")
         elif runCMD == "exit":
             disclaimerFN()
             break
