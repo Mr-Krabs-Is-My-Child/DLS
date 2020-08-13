@@ -159,14 +159,15 @@ def runConsole():
             print("Edit disclaimer")
         elif runCMD == "kill":
             sys.exit()
-        elif runCMD == "recent" or "recent entries" or "entries":
+        elif runCMD =="recent entries":
             print("The recent entries include:")
             print(recentEntries)
         elif runCMD == "search":
             print("search")
+        elif runCMD == "exit":
+            break
         else:
             print("Nothing happened")
-            break
 
 
 # Run Program Functions
