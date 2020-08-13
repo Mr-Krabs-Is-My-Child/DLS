@@ -140,22 +140,33 @@ def phoneNumberFN():
 
 # Console
 def runConsole():
-    global commandList
-    global recentEntries
-    print("Available commands:")
-    print(commandList)
-    runCMD = str(input("Command Entry"))
-    runCMD = runCMD.lower()
-    # Console Commands
-    if runCMD == "edit disclaimer":
-        print("Edit disclaimer")
-    elif runCMD == "kill":
-        sys.exit()
-    elif runCMD == "recent" or "recent entries" or "entries":
-        print(recentEntries)
-        runConsole()
-    else:
-        print("Nothing happened")
+    while True:
+
+        global firstNameLoop
+        global surnameLoop
+        global phoneNumberLoop
+        firstNameLoop = False
+        surnameLoop = False
+        phoneNumberLoop = False
+        global commandList
+        global recentEntries
+        print("Available commands:")
+        print(commandList)
+        runCMD = str(input("Command Entry"))
+        runCMD = runCMD.lower()
+        # Console Commands
+        if runCMD == "edit disclaimer":
+            print("Edit disclaimer")
+        elif runCMD == "kill":
+            sys.exit()
+        elif runCMD == "recent" or "recent entries" or "entries":
+            print("The recent entries include:")
+            print(recentEntries)
+        elif runCMD == "search":
+            print("search")
+        else:
+            print("Nothing happened")
+            break
 
 
 # Run Program Functions
