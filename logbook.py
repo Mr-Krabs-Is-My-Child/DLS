@@ -4,6 +4,7 @@ import time
 import os
 from datetime import datetime
 
+
 # Variables for program operation
 first = ""
 surname = ""
@@ -16,12 +17,13 @@ firstNameLoop = True
 surnameLoop = True
 phoneNumberLoop = True
 
+
 # Lists for program operation
 recentEntries = []
-commandList = ["Edit Disclaimer","Kill","Recent Entries","Search"]
+commandList = ["Edit Disclaimer","Kill","Recent Entries","Search","Exit"]
 
 
-# Disclaimer Function
+# Disclaimer.txt Function
 def disclaimerFN():
     global firstNameLoop
     global surnameLoop
@@ -30,16 +32,16 @@ def disclaimerFN():
     surnameLoop = True
     phoneNumberLoop = True
     try:
-        disclaimerFile = open("Disclaimer", "r")
+        disclaimerFile = open("Disclaimer.txt", "r")
         print(disclaimerFile.read())
         disclaimerFile.close()
     except FileNotFoundError:
         # Print an error message, Add code to create Disclaimer with default text if one is not found
-        print("Disclaimer file not found. Creating new disclaimer file")
-        disclaimerFile = open("Disclaimer", "a")
+        print("Disclaimer.txt file not found. Creating new disclaimer file")
+        disclaimerFile = open("Disclaimer.txt", "a")
         disclaimerFile.write("Default disclaimer")
         disclaimerFile.close()
-        disclaimerFile = open("Disclaimer", "r")
+        disclaimerFile = open("Disclaimer.txt", "r")
         print(disclaimerFile.read())
         disclaimerFile.close()
     finally:
@@ -145,7 +147,6 @@ def phoneNumberFN():
 # Console
 def runConsole():
     while True:
-
         global firstNameLoop
         global surnameLoop
         global phoneNumberLoop
@@ -162,6 +163,13 @@ def runConsole():
         if runCMD == "edit disclaimer":
             # Edit Disclaimer command
             print("Edit disclaimer")
+            try:
+                editDisclaimer = open("Disclaimer.txt","w")
+                edit = str(input("Edit disclaimer"))
+                editDisclaimer.write(edit)
+                editDisclaimer.close()
+            except FileNotFoundError:
+                print("Disclaimer.txt File Not Found")
         elif runCMD == "kill":
             # Kills program
             sys.exit()
