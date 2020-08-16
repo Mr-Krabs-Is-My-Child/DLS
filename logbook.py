@@ -134,6 +134,7 @@ def phoneNumberFN():
                         userFile.write(phoneNumber)
                         userFile.write("\n")
                         userFile.write(timeStr)
+                        userFile.close()
                         disclaimerFN()
                         # End of user input sequence
                     except FileExistsError:
@@ -157,19 +158,24 @@ def runConsole():
         print(commandList)
         runCMD = str(input("Command Entry"))
         runCMD = runCMD.lower()
-        # Console Commands
+        # Console commands
         if runCMD == "edit disclaimer":
+            # Edit Disclaimer command
             print("Edit disclaimer")
         elif runCMD == "kill":
+            # Kills program
             sys.exit()
         elif runCMD =="recent entries":
+            # Recent Entries
             print("The recent entries include:")
             print(recentEntries)
         elif runCMD == "search":
+            # Search command
             print("search")
             try:
                 search = str(input("Search name"))
                 search = search + ".txt"
+                print("Found file {}".format(search))
                 f = open(search,"r")
                 print(f.read())
                 f.close()
