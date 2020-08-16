@@ -141,7 +141,7 @@ def phoneNumberFN():
                         # End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
-                        fullName = fullName + "_Test"
+                        fullName = fullName + "_[]"
 
 
 # Console
