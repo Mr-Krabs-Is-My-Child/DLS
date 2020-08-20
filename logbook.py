@@ -203,16 +203,16 @@ attention""")
             print(recentEntries)
         elif runCMD == "search":
             # Search command
-            print("search")
+            print("Please enter the requested name below")
             try:
-                search = str(input("Search name"))
+                search = str(input("[-->]"))
                 search = search + ".txt"
                 print("Found file {}".format(search))
                 f = open(search,"r")
                 print(f.read())
                 f.close()
             except FileNotFoundError:
-                print("File not found")
+                print("File {} not found".format(search))
         elif runCMD == "exit":
             disclaimerFN()
             break
