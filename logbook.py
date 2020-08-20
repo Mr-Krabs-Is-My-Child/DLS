@@ -166,17 +166,28 @@ def runConsole():
         global recentEntries
         print("Available commands:")
         print(commandList)
-        runCMD = str(input("Command Entry"))
+        print("Please enter a command")
+        runCMD = str(input("[-->]"))
         runCMD = runCMD.lower()
         # Console commands
         if runCMD == "edit disclaimer":
             # Edit Disclaimer command
-            print("Edit disclaimer")
+            print("Opening Disclaimer for editing.....")
             try:
-                edit = str(input("Edit disclaimer"))
+                print("Type your disclaimer below, or type reset to set the disclaimer to its default message. Leave this open to cancel")
+                edit = str(input("[-->]"))
                 resetList = ["reset" , "Reset" , "RESET"]
                 if edit in resetList:
                     print("Reset")
+                    disclaimerFile = open("Disclaimer.txt", "w")
+                    disclaimerFile.write("""Welcome visitor. Please follow the console's instructions so that we may collect some data.
+This Data will be used by us if we may need to contact you for various reasons, and it helps
+us keep track of our visitors. Your information will not be used anywhere else. By entering
+your information, you agree that you have read this and accept the terms. Thank you for paying
+attention""")
+                    disclaimerFile.close()
+                elif edit == "":
+                    print("Cancelling...")
                 else:
                     editDisclaimer = open("Disclaimer.txt","w")
                     editDisclaimer.write(edit)
