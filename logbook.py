@@ -37,14 +37,21 @@ def disclaimerFN():
         disclaimerFile.close()
     except FileNotFoundError:
         # Print an error message, Add code to create Disclaimer with default text if one is not found
-        print("Disclaimer.txt file not found. Creating new disclaimer file")
+        print('File "Disclaimer.txt" not found. Creating new disclaimer file with default disclaimer message')
+        print("\n")
+        time.sleep(2)
         disclaimerFile = open("Disclaimer.txt", "a")
-        disclaimerFile.write("Default disclaimer")
+        disclaimerFile.write("""Welcome visitor. Please follow the console's instructions so that we may collect some data.
+This Data will be used by us if we may need to contact you for various reasons, and it helps
+us keep track of our visitors. Your information will not be used anywhere else. By entering
+your information, you agree that you have read this and accept the terms. Thank you for paying
+attention""")
         disclaimerFile.close()
         disclaimerFile = open("Disclaimer.txt", "r")
         print(disclaimerFile.read())
         disclaimerFile.close()
     finally:
+        print("\n")
         firstNameFN()
 
 
@@ -56,7 +63,7 @@ def firstNameFN():
     # Input Loop
     while firstNameLoop == True:
         try:
-            print("Please input you First name:")
+            print("Please type your first name in the bar below")
             first = str(input("[-->]"))
         except ValueError:
             print("ValueError")
@@ -67,6 +74,7 @@ def firstNameFN():
                 runConsole()
             else:
                 # Continue input sequence if CMD is not detected
+                print("\n")
                 surnameFN()
 
 
@@ -76,7 +84,7 @@ def surnameFN():
     global commandCode
     while surnameLoop == True:
         try:
-            print("Please input you Surname:")
+            print("Please type your surname into the bar below")
             surname = str(input("[-->]"))
         except ValueError:
 
@@ -88,6 +96,7 @@ def surnameFN():
                 runConsole()
             else:
                 # Continue input sequence if CMD is not detected
+                print("\n")
                 phoneNumberFN()
 
 
@@ -141,7 +150,7 @@ def phoneNumberFN():
                         # End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
-                        fullName = fullName + "_[]"
+                        fullName = fullName + "_1"
 
 
 # Console
@@ -164,10 +173,14 @@ def runConsole():
             # Edit Disclaimer command
             print("Edit disclaimer")
             try:
-                editDisclaimer = open("Disclaimer.txt","w")
                 edit = str(input("Edit disclaimer"))
-                editDisclaimer.write(edit)
-                editDisclaimer.close()
+                resetList = ["reset" , "Reset" , "RESET"]
+                if edit in resetList:
+                    print("Reset")
+                else:
+                    editDisclaimer = open("Disclaimer.txt","w")
+                    editDisclaimer.write(edit)
+                    editDisclaimer.close()
             except FileNotFoundError:
                 print("Disclaimer.txt File Not Found")
         elif runCMD == "kill":
