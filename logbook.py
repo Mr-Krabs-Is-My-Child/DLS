@@ -217,7 +217,7 @@ attention""")
             disclaimerFN()
             break
         else:
-            print("Not recognized")
+            print("Command was not recognized. Please try again")
 
 
 # Run Program Functions
