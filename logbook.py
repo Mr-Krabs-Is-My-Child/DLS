@@ -124,7 +124,7 @@ def phoneNumberFN():
                 phoneNumber = ""
                 runConsole()
             else:
-                print("Thank you message")
+                print("Thank you for you co-operation. We will contact you if necessary")
                 fullName = first + "_" + surname
                 recentEntries.append(fullName)
                 while createFile == True:
@@ -176,7 +176,7 @@ def runConsole():
             try:
                 print("Type your disclaimer below, or type reset to set the disclaimer to its default message. Leave this open to cancel")
                 edit = str(input("[-->]"))
-                resetList = ["reset" , "Reset" , "RESET"]
+                resetList = ["reset", "Reset", "RESET"]
                 if edit in resetList:
                     print("Reset")
                     disclaimerFile = open("Disclaimer.txt", "w")
