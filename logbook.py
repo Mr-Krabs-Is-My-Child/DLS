@@ -12,10 +12,6 @@ phoneNumber = ""
 fullName = ""
 userFile = ""
 timeStr = ""
-continueInput = True
-firstNameLoop = True
-surnameLoop = True
-phoneNumberLoop = True
 
 
 # Lists for program operation
@@ -25,12 +21,6 @@ commandList = ["Edit Disclaimer","Kill","Recent Entries","Search","Exit"]
 
 # Disclaimer.txt Function
 def disclaimerFN():
-    global firstNameLoop
-    global surnameLoop
-    global phoneNumberLoop
-    firstNameLoop = True
-    surnameLoop = True
-    phoneNumberLoop = True
     try:
         disclaimerFile = open("Disclaimer.txt", "r")
         print(disclaimerFile.read())
@@ -58,10 +48,8 @@ attention""")
 # User input functions
 def firstNameFN():
     global first
-    global firstNameLoop
-    global commandCode
     # Input Loop
-    while firstNameLoop == True:
+    while True:
         print("Please type your first name in the bar below")
         try:
             first = str(input("[-->]"))
@@ -70,8 +58,8 @@ def firstNameFN():
         else:
             if first == "CMD":
                 first = ""
-                firstNameLoop = False
                 runConsole()
+                break
             elif first.isalpha() == False:
                 print("That name contains numbers. Please enter a name that does not contain numbers")
             elif first == "":
@@ -80,15 +68,13 @@ def firstNameFN():
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
-                firstNameLoop = False
                 surnameFN()
+                break
 
 
 def surnameFN():
     global surname
-    global surnameLoop
-    global commandCode
-    while surnameLoop == True:
+    while True:
         print("Please type your surname into the bar below")
         try:
             surname = str(input("[-->]"))
@@ -98,8 +84,8 @@ def surnameFN():
         else:
             if surname == "CMD":
                 surname = ""
-                surnameLoop = False
                 runConsole()
+                break
             elif surname.isalpha() == False:
                 print("That surname contains numbers. Please enter a surname that does not contain numbers")
             elif surname == "":
@@ -108,48 +94,43 @@ def surnameFN():
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
-                surnameLoop = False
                 phoneNumberFN()
+                break
 
 
 def phoneNumberFN():
     # Global variables for writing to files
     global phoneNumber
-    global phoneNumberLoop
-    global commandCode
     global fullName
     global first
     global surname
     global userFile
     global timeStr
-    createFile = True
-    while phoneNumberLoop == True:
+    while True:
         print("Please enter your phone number, so that we may contact you if necessary")
         try:
-            phoneNumber = int(input("[-->]"))
+            phoneNumber = str(input("[-->]"))
         except ValueError:
-
             print("I'm sorry, but that's not a phone number")
         else:
             if phoneNumber == "CMD":
                 phoneNumber = ""
-                phoneNumberLoop = False
                 runConsole()
+                break
             elif phoneNumber == "":
-                print("I'm sorry, but that's not a phone number")
+                print("I'm sorry, but you've left it empty")
                 print("\n")
+            elif phoneNumber.isdigit() == False:
+                print("That phone number contains letters")
             else:
-                phoneNumber = str(phoneNumber)
-                phoneNumberLoop = False
                 print("Thank you for you co-operation. We will contact you if necessary")
                 fullName = first + "_" + surname
                 recentEntries.append(fullName)
-                while createFile == True:
+                while True:
                     try:
                         # User file creation and writing
                         userFile = open((fullName + ".txt"), "x")
                         userFile.close()
-                        createFile = False
                         # Datetime to string formatting
                         dateTime = datetime.now()
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
@@ -164,6 +145,7 @@ def phoneNumberFN():
                         userFile.write(timeStr)
                         userFile.close()
                         disclaimerFN()
+                        break
                         # End of user input sequence
                     except FileExistsError:
                         print("File Exists Error")
