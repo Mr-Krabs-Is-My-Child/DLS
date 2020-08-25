@@ -114,7 +114,7 @@ def phoneNumberFN():
     while phoneNumberLoop == True:
         try:
             print("Please enter your phone number, so that we may contact you if necessary")
-            phoneNumber = str(input("[-->]"))
+            phoneNumber = int(input("[-->]"))
         except ValueError:
 
             print("ValueError")
@@ -124,6 +124,7 @@ def phoneNumberFN():
                 phoneNumber = ""
                 runConsole()
             else:
+                phoneNumber = str(phoneNumber)
                 print("Thank you for you co-operation. We will contact you if necessary")
                 fullName = first + "_" + surname
                 recentEntries.append(fullName)
