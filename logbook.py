@@ -72,6 +72,8 @@ def firstNameFN():
                 first = ""
                 firstNameLoop = False
                 runConsole()
+            elif first.isalpha() == False:
+                print("That name contains numbers. Please enter a name that does not contain numbers")
             elif first == "":
                 print("I'm sorry, but that isn't actually a name")
                 print("\n")
@@ -98,6 +100,8 @@ def surnameFN():
                 surname = ""
                 surnameLoop = False
                 runConsole()
+            elif surname.isalpha() == False:
+                print("That surname contains numbers. Please enter a surname that does not contain numbers")
             elif surname == "":
                 print("I'm sorry, but that isn't actually a surname")
                 print("\n")
