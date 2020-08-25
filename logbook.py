@@ -73,7 +73,7 @@ def firstNameFN():
                 firstNameLoop = False
                 runConsole()
             elif first == "":
-                print("Please try again")
+                print("I'm sorry, but that isn't actually a name")
                 print("\n")
             else:
                 # Continue input sequence if CMD is not detected
@@ -99,7 +99,7 @@ def surnameFN():
                 surnameLoop = False
                 runConsole()
             elif surname == "":
-                print("Please try again")
+                print("I'm sorry, but that isn't actually a surname")
                 print("\n")
             else:
                 # Continue input sequence if CMD is not detected
@@ -125,14 +125,14 @@ def phoneNumberFN():
             phoneNumber = int(input("[-->]"))
         except ValueError:
 
-            print("ValueError")
+            print("I'm sorry, but that's not a phone number")
         else:
             if phoneNumber == "CMD":
                 phoneNumber = ""
                 phoneNumberLoop = False
                 runConsole()
             elif phoneNumber == "":
-                print("Please try again")
+                print("I'm sorry, but that's not a phone number")
                 print("\n")
             else:
                 phoneNumber = str(phoneNumber)
