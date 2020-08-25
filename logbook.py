@@ -62,19 +62,23 @@ def firstNameFN():
     global commandCode
     # Input Loop
     while firstNameLoop == True:
+        print("Please type your first name in the bar below")
         try:
-            print("Please type your first name in the bar below")
             first = str(input("[-->]"))
         except ValueError:
             print("ValueError")
         else:
-            firstNameLoop = False
             if first == "CMD":
                 first = ""
+                firstNameLoop = False
                 runConsole()
+            elif first == "":
+                print("Please try again")
+                print("\n")
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
+                firstNameLoop = False
                 surnameFN()
 
 
@@ -83,20 +87,24 @@ def surnameFN():
     global surnameLoop
     global commandCode
     while surnameLoop == True:
+        print("Please type your surname into the bar below")
         try:
-            print("Please type your surname into the bar below")
             surname = str(input("[-->]"))
         except ValueError:
 
             print("ValueError")
         else:
-            surnameLoop = False
             if surname == "CMD":
                 surname = ""
+                surnameLoop = False
                 runConsole()
+            elif surname == "":
+                print("Please try again")
+                print("\n")
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
+                surnameLoop = False
                 phoneNumberFN()
 
 
@@ -112,19 +120,23 @@ def phoneNumberFN():
     global timeStr
     createFile = True
     while phoneNumberLoop == True:
+        print("Please enter your phone number, so that we may contact you if necessary")
         try:
-            print("Please enter your phone number, so that we may contact you if necessary")
             phoneNumber = int(input("[-->]"))
         except ValueError:
 
             print("ValueError")
         else:
-            phoneNumberLoop = False
             if phoneNumber == "CMD":
                 phoneNumber = ""
+                phoneNumberLoop = False
                 runConsole()
+            elif phoneNumber == "":
+                print("Please try again")
+                print("\n")
             else:
                 phoneNumber = str(phoneNumber)
+                phoneNumberLoop = False
                 print("Thank you for you co-operation. We will contact you if necessary")
                 fullName = first + "_" + surname
                 recentEntries.append(fullName)
