@@ -44,6 +44,8 @@ attention""")
         print("\n")
         firstNameFN()
 
+#Clear console for protecting data
+clear = lambda: os.system("cls")
 
 # User input functions
 def firstNameFN():
@@ -55,6 +57,7 @@ def firstNameFN():
             first = str(input("[-->]"))
         except ValueError:
             print("ValueError")
+        # Evaluating first name input
         else:
             if first == "CMD":
                 first = ""
@@ -81,6 +84,7 @@ def surnameFN():
         except ValueError:
 
             print("ValueError")
+        # Evaluating surname input
         else:
             if surname == "CMD":
                 surname = ""
@@ -112,6 +116,7 @@ def phoneNumberFN():
             phoneNumber = str(input("[-->]"))
         except ValueError:
             print("I'm sorry, but that's not a phone number")
+        # Evaluating phone number input
         else:
             if phoneNumber == "CMD":
                 phoneNumber = ""
@@ -144,6 +149,8 @@ def phoneNumberFN():
                         userFile.write("\n")
                         userFile.write(timeStr)
                         userFile.close()
+                        # Clear Console
+                        clear()
                         disclaimerFN()
                         break
                         # End of user input sequence
@@ -154,13 +161,8 @@ def phoneNumberFN():
 
 # Console
 def runConsole():
+    clear()
     while True:
-        global firstNameLoop
-        global surnameLoop
-        global phoneNumberLoop
-        firstNameLoop = False
-        surnameLoop = False
-        phoneNumberLoop = False
         global commandList
         global recentEntries
         print("Available commands:")
@@ -213,11 +215,15 @@ attention""")
             except FileNotFoundError:
                 print("File {} not found".format(search))
         elif runCMD == "exit":
+            # Resumes program
+            clear()
             disclaimerFN()
             break
         else:
+            # Do this if the input is not listed
             print("Command was not recognized. Please try again")
 
 
 # Run Program Functions
 disclaimerFN()
+
