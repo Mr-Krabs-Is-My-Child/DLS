@@ -126,7 +126,7 @@ def phoneNumberFN():
                 print("I'm sorry, but you've left it empty")
                 print("\n")
             elif phoneNumber.isdigit() == False:
-                print("That phone number contains letters")
+                print("That phone number contains letters and/or special characters")
             else:
                 print("Thank you for you co-operation. We will contact you if necessary")
                 fullName = first + "_" + surname
