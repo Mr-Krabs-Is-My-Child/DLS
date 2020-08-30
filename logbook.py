@@ -179,7 +179,7 @@ def runConsole():
                 edit = str(input("[-->]"))
                 resetList = ["reset", "Reset", "RESET"]
                 if edit in resetList:
-                    print("Reset")
+                    print("Reset Disclaimer")
                     disclaimerFile = open("Disclaimer.txt", "w")
                     disclaimerFile.write("""Welcome visitor. Please follow the console's instructions so that we may collect some data.
 This Data will be used by us if we may need to contact you for various reasons, and it helps
