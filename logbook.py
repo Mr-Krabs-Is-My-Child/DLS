@@ -71,6 +71,11 @@ def firstNameFN():
             elif first == "":
                 print("I'm sorry, but that isn't actually a name")
                 print("\n")
+            elif first == "Anakin":
+                print("You are the chosen one!")
+                print("\n")
+                surnameFN()
+                break
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
@@ -226,9 +231,11 @@ attention""")
                 search = str(input("[-->]"))
                 search = search + ".txt"
                 print("Found file {}".format(search))
+                print("\n")
                 f = open(search,"r")
                 print(f.read())
                 f.close()
+                print("\n")
             except FileNotFoundError:
                 print("File {} not found".format(search))
         elif runCMD == "exit":
