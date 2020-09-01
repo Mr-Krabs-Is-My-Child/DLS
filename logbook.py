@@ -148,6 +148,7 @@ def phoneNumberFN():
                 print("That phone number contains letters and/or special characters")
             else:
                 print("Thank you for you co-operation. We will contact you if necessary")
+                time.sleep(5)
                 fullName = first + "_" + surname
                 recentEntries.append(fullName)
                 while True:
