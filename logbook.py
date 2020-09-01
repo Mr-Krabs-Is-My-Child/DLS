@@ -59,12 +59,15 @@ def firstNameFN():
             print("ValueError")
         # Evaluating first name input
         else:
+            # Command Code Test
             if first == "CMD":
                 first = ""
                 runConsole()
                 break
+            # Check for numbers
             elif first.isalpha() == False:
                 print("That name contains numbers. Please enter a name that does not contain numbers")
+            # Empty Prompt
             elif first == "":
                 print("I'm sorry, but that isn't actually a name")
                 print("\n")
@@ -86,12 +89,15 @@ def surnameFN():
             print("ValueError")
         # Evaluating surname input
         else:
+            # Command Code Test
             if surname == "CMD":
                 surname = ""
                 runConsole()
                 break
+            # Check for numbers
             elif surname.isalpha() == False:
                 print("That surname contains numbers. Please enter a surname that does not contain numbers")
+            # Empty Prompt
             elif surname == "":
                 print("I'm sorry, but that isn't actually a surname")
                 print("\n")
@@ -118,13 +124,16 @@ def phoneNumberFN():
             print("I'm sorry, but that's not a phone number")
         # Evaluating phone number input
         else:
+            # Command Code Test
             if phoneNumber == "CMD":
                 phoneNumber = ""
                 runConsole()
                 break
+            # Empty Prompt
             elif phoneNumber == "":
                 print("I'm sorry, but you've left it empty")
                 print("\n")
+            # Check for letters / special characters
             elif phoneNumber.isdigit() == False:
                 print("That phone number contains letters and/or special characters")
             else:
