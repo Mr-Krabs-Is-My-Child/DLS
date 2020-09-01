@@ -248,9 +248,18 @@ attention""")
             clear()
             disclaimerFN()
             break
+        elif runCMD == "roger":
+            print("Roger Roger")
+            print("\n")
+        elif runCMD == "66":
+            print("Of course, my Lord...")
+            time.sleep(3)
+            print("\n")
+            print("...Wait, I'm not a clone")
         else:
             # Do this if the input is not listed
             print("Command was not recognized. Please try again")
+            print("\n")
 
 
 # Run Program Functions
