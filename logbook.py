@@ -202,6 +202,14 @@ attention""")
             # Recent Entries
             print("The recent entries include:")
             print(recentEntries)
+            if len(recentEntries) != 0:
+                print("Would you like to clear the recent entries? Type [Y] to clear")
+                clearRecent = str(input("[-->]"))
+                clearRecent = clearRecent.lower()
+                if clearRecent == "y":
+                    recentEntries.clear()
+                else:
+                    print("Returning to console...")
         elif runCMD == "search":
             # Search command
             print("Please enter the requested name below")
