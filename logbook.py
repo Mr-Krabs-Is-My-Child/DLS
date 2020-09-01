@@ -106,6 +106,11 @@ def surnameFN():
             elif surname == "":
                 print("I'm sorry, but that isn't actually a surname")
                 print("\n")
+            elif surname == "Kenobi":
+                print("Hello There")
+                print("\n")
+                phoneNumberFN()
+                break
             else:
                 # Continue input sequence if CMD is not detected
                 print("\n")
