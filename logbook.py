@@ -220,14 +220,17 @@ attention""")
             sys.exit()
         elif runCMD =="recent entries":
             # Recent Entries
-            print("The recent entries include:")
-            print(recentEntries)
-            if len(recentEntries) != 0:
+            if len(recentEntries) == 0:
+                print("There are no recent entries")
+            else:
+                print("The recent entries include:")
+                print(recentEntries)
                 print("Would you like to clear the recent entries? Type [Y] to clear")
                 clearRecent = str(input("[-->]"))
                 clearRecent = clearRecent.lower()
                 if clearRecent == "y":
                     recentEntries.clear()
+                    print("The recent entries have been removed")
                 else:
                     print("Returning to console...")
         elif runCMD == "search":
