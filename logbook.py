@@ -194,7 +194,13 @@ def runConsole():
         if runCMD == "edit disclaimer":
             # Edit Disclaimer command
             print("Opening Disclaimer for editing.....")
+            print("\n")
             try:
+                print("The current disclaimer reads:")
+                disclaimerFile = open("Disclaimer.txt", "r")
+                print(disclaimerFile.read())
+                disclaimerFile.close()
+                print("\n")
                 print("Type your disclaimer below, or type reset to set the disclaimer to its default message. Leave this open to cancel")
                 edit = str(input("[-->]"))
                 resetList = ["reset", "Reset", "RESET"]
