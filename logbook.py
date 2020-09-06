@@ -203,6 +203,7 @@ def runConsole():
                 print("\n")
                 print("Type your disclaimer below, or type reset to set the disclaimer to its default message. Leave this open to cancel")
                 edit = str(input("[-->]"))
+                # Code to reset disclaimer
                 resetList = ["reset", "Reset", "RESET"]
                 if edit in resetList:
                     print("Reset Disclaimer")
@@ -229,6 +230,7 @@ attention""")
             if len(recentEntries) == 0:
                 print("There are no recent entries")
             else:
+                # Option to clear recent entries list if it is not empty
                 print("The recent entries include:")
                 print(recentEntries)
                 print("Would you like to clear the recent entries? Type [Y] to clear")
