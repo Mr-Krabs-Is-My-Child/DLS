@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 # Variables for program operation
-first = ""
+firstName = ""
 surname = ""
 phoneNumber = ""
 fullName = ""
@@ -49,29 +49,29 @@ clear = lambda: os.system("cls")
 
 # User input functions
 def firstNameFN():
-    global first
+    global firstName
     # Input Loop
     while True:
         print("Please type your first name in the bar below")
         try:
-            first = str(input("[-->]"))
+            firstName = str(input("[-->]"))
         except ValueError:
             print("ValueError")
         # Evaluating first name input
         else:
             # Command Code Test
-            if first == "CMD":
-                first = ""
+            if firstName == "CMD":
+                firstName = ""
                 runConsole()
                 break
             # Check for numbers
-            elif first.isalpha() == False:
-                print("That name contains numbers. Please enter a name that does not contain numbers")
+            elif firstName.isalpha() == False:
+                print("That name contains numbers and/or special characters. Please enter a name that does not contain numbers or special characters")
             # Empty Prompt
-            elif first == "":
+            elif firstName == "":
                 print("I'm sorry, but that isn't actually a name")
                 print("\n")
-            elif first == "Anakin":
+            elif firstName == "Anakin":
                 print("You are the chosen one!")
                 print("\n")
                 surnameFN()
@@ -101,7 +101,7 @@ def surnameFN():
                 break
             # Check for numbers
             elif surname.isalpha() == False:
-                print("That surname contains numbers. Please enter a surname that does not contain numbers")
+                print("That name contains numbers and/or special characters. Please enter a name that does not contain numbers or special characters")
             # Empty Prompt
             elif surname == "":
                 print("I'm sorry, but that isn't actually a surname")
@@ -122,7 +122,7 @@ def phoneNumberFN():
     # Global variables for writing to files
     global phoneNumber
     global fullName
-    global first
+    global firstName
     global surname
     global userFile
     global timeStr
@@ -149,7 +149,7 @@ def phoneNumberFN():
             else:
                 print("Thank you for you co-operation. We will contact you if necessary")
                 time.sleep(5)
-                fullName = first + "_" + surname
+                fullName = firstName + "_" + surname
                 recentEntries.append(fullName)
                 while True:
                     try:
@@ -161,7 +161,7 @@ def phoneNumberFN():
                         timeStr = dateTime.strftime("%a %d %b %Y (%H:%M:%S)")
                         # Open file for appending and adding stored data to file
                         userFile = open((fullName + ".txt"), "a")
-                        userFile.write(first)
+                        userFile.write(firstName)
                         userFile.write(" ")
                         userFile.write(surname)
                         userFile.write("\n")
