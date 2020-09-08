@@ -31,6 +31,7 @@ def disclaimerFN():
         print("\n")
         time.sleep(2)
         disclaimerFile = open("Disclaimer.txt", "a")
+        # Default Disclaimer
         disclaimerFile.write("""Welcome visitor. Please follow the console's instructions so that we may collect some data.
 This Data will be used by us if we may need to contact you for various reasons, and it helps
 us keep track of our visitors. Your information will not be used anywhere else. By entering
@@ -41,6 +42,7 @@ attention""")
         print(disclaimerFile.read())
         disclaimerFile.close()
     finally:
+        # Continue program after reading the disclaimer
         print("\n")
         firstNameFN()
 
@@ -179,7 +181,7 @@ def phoneNumberFN():
                         fullName = fullName + "_1"
 
 
-# Console
+# Console function
 def runConsole():
     clear()
     while True:
