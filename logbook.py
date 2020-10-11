@@ -1,3 +1,8 @@
+# The program will first run the disclaimer code, and this will run the first name input function. The code will then
+# decide to either open the command window when parameters are met, or to continue onto the next input function.
+# This will continue to loop forever unless the program is either closed or killed using the "kill" command in the
+# command console
+
 # Imports for program operation
 import sys
 import time
@@ -46,10 +51,12 @@ attention""")
         print("\n")
         firstNameFN()
 
-#Clear console for protecting data
+# Clear console for protecting data
 clear = lambda: os.system("cls")
 
 # User input functions
+
+# Function asks for first name input and continues accordingly
 def firstNameFN():
     global firstName
     # Input Loop
@@ -61,7 +68,7 @@ def firstNameFN():
             print("ValueError")
         # Evaluating first name input
         else:
-            # Command Code Test
+            # Checks if the user is requesting the command console
             if firstName == "CMD":
                 firstName = ""
                 runConsole()
@@ -84,7 +91,7 @@ def firstNameFN():
                 surnameFN()
                 break
 
-
+# If the first name is not CMD then this function is run
 def surnameFN():
     global surname
     while True:
@@ -96,7 +103,7 @@ def surnameFN():
             print("ValueError")
         # Evaluating surname input
         else:
-            # Command Code Test
+            # Checks if the user is requesting the command console
             if surname == "CMD":
                 surname = ""
                 runConsole()
@@ -119,7 +126,7 @@ def surnameFN():
                 phoneNumberFN()
                 break
 
-
+# If the surname is not CMD then this function is run
 def phoneNumberFN():
     # Global variables for writing to files
     global phoneNumber
@@ -136,7 +143,7 @@ def phoneNumberFN():
             print("I'm sorry, but that's not a phone number")
         # Evaluating phone number input
         else:
-            # Command Code Test
+            # Checks if the user is requesting the command console
             if phoneNumber == "CMD":
                 phoneNumber = ""
                 runConsole()
@@ -181,7 +188,7 @@ def phoneNumberFN():
                         fullName = fullName + "_1"
 
 
-# Console function
+# Console function runs if any input is CMD
 def runConsole():
     clear()
     while True:
@@ -276,6 +283,6 @@ attention""")
             print("\n")
 
 
-# Run Program Functions
+# Call for disclaimerFN to start function loop
 disclaimerFN()
 
