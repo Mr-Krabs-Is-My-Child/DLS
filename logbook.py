@@ -224,6 +224,7 @@ your information, you agree that you have read this and accept the terms. Thank 
 attention""")
                     disclaimerFile.close()
                 elif edit == "":
+                    # Cancels disclaimer editing if the input is empty
                     print("Cancelling...")
                 else:
                     editDisclaimer = open("Disclaimer.txt","w")
@@ -254,6 +255,7 @@ attention""")
             # Search command
             print("Please enter the requested name below")
             try:
+                # Gets user input for file name and attempts to locate it. If it is found it will be opened
                 search = str(input("[-->]"))
                 search = search + ".txt"
                 print("Found file {}".format(search))
@@ -263,15 +265,18 @@ attention""")
                 f.close()
                 print("\n")
             except FileNotFoundError:
+                # Presents file not found error to user
                 print("File {} not found".format(search))
         elif runCMD == "exit":
             # Resumes program
             clear()
             disclaimerFN()
             break
+        # Roger easter egg
         elif runCMD == "roger":
             print("Roger Roger")
             print("\n")
+        # 66 easter egg
         elif runCMD == "66":
             print("Of course, my Lord...")
             time.sleep(3)
