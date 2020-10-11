@@ -65,7 +65,7 @@ def firstNameFN():
         try:
             firstName = str(input("[-->]"))
         except ValueError:
-            print("ValueError")
+            print("I'm sorry. There was an error")
         # Evaluating first name input
         else:
             # Checks if the user is requesting the command console
@@ -100,7 +100,7 @@ def surnameFN():
             surname = str(input("[-->]"))
         except ValueError:
 
-            print("ValueError")
+            print("I'm sorry. There was an error")
         # Evaluating surname input
         else:
             # Checks if the user is requesting the command console
@@ -184,7 +184,7 @@ def phoneNumberFN():
                         break
                         # End of user input sequence
                     except FileExistsError:
-                        print("File Exists Error")
+                        print("File Exists. Creating new file")
                         fullName = fullName + "_1"
 
 
