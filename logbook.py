@@ -230,6 +230,7 @@ attention""")
                     editDisclaimer = open("Disclaimer.txt","w")
                     editDisclaimer.write(edit)
                     editDisclaimer.close()
+            # Disclaimer not found
             except FileNotFoundError:
                 print("Disclaimer.txt File Not Found")
         elif runCMD == "kill":
@@ -246,6 +247,7 @@ attention""")
                 print("Would you like to clear the recent entries? Type [Y] to clear")
                 clearRecent = str(input("[-->]"))
                 clearRecent = clearRecent.lower()
+                # Clears the recent entries
                 if clearRecent == "y":
                     recentEntries.clear()
                     print("The recent entries have been removed")
